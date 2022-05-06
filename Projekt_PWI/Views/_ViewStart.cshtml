@@ -1,0 +1,10 @@
+﻿@using System.Globalization
+@using Projekt_PWI.Resources
+
+@{
+    Layout = "_Layout";
+    var lang = ViewBag.Culture;
+    Language.Culture = new CultureInfo(lang);
+    Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(lang);
+    Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
+}

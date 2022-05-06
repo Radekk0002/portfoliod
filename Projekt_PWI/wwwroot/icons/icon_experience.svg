@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#ic_photo_filter_24px_1_);}
+</style>
+<linearGradient id="ic_photo_filter_24px_1_" gradientUnits="userSpaceOnUse" x1="-873.2699" y1="1161.842" x2="-863.1133" y2="1151.0767" gradientTransform="matrix(24 0 0 -24 20923 27862)">
+	<stop  offset="0" style="stop-color:#71456E"/>
+	<stop  offset="1" style="stop-color:#F73F7F"/>
+</linearGradient>
+<path id="ic_photo_filter_24px" class="st0" d="M177.9,77.7v100.1H22V22.1h100.1V-0.1H22.2C10-0.1,0,9.8,0,22.1v155.7
+	C0,190,10,200,22.2,200h155.7c12.3,0,22.2-10,22.2-22.2V77.7H177.9z M155.4,77.7l10.4-22.9l22.9-10.4l-22.9-10.4L155.4,11L145,33.9
+	l-22.9,10.4L145,54.8L155.4,77.7z M113.7,86L99.8,55.5L85.9,86L55.4,99.9l30.6,13.9l13.9,30.6l13.9-30.6l30.6-13.9L113.7,86z"/>
+</svg>

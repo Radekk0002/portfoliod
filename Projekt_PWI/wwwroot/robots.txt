@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://portfoliod.radekkisiel.pl/sitemap.xml

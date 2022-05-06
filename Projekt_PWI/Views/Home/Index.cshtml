@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Portfolio";
+}
+
+<header class="home d-flex flex-column align-items-center justify-content-center">
+    <div class="headerName d-flex flex-column align-items-center">
+        <h1 class="mt-0 mb-0">Dominik Obłoza</h1>
+        <h4 class="mt-0 mb-0">@Language.header_subtitle</h4>
+    </div>
+    <div class="headerNameSm flex-column align-items-center">
+        <h1 class="mt-0 mb-0">Dominik Obłoza</h1>
+        <h4 class="mt-0 mb-0">@Language.header_subtitle</h4>
+        <div class="portfolioButton mt-4 mt-md-5 mb-0 ml-auto mr-auto">
+            <img src="./icons/button.svg" alt="Przewiń do portfolio" />
+        </div>
+    </div>
+
+    <img class="headerIcon" src="./background/headerIcon.svg" alt="site logo" width="200" height="200"/>
+    <div class="portfolioButton mt-md-5 mb-0 ml-auto mr-auto">
+        <img src="./icons/button.svg" alt="Przewiń do portfolio" />
+    </div>
+</header>
+<main>
+    <article>
+        <section class="info">
+            <div class="d-flex flex-column flex-md-row justify-content-center justify-content-around align-items-center flex-md-wrap">
+                @Html.Partial("_Card", new CardViewModel{Title=Language.info_web_title, Description=Language.info_web_description})
+                @Html.Partial("_Card", new CardViewModel{Title=Language.info_identification_title, Description=Language.info_identification_description})
+                @Html.Partial("_Card", new CardViewModel{Title=Language.info_print_title, Description=Language.info_print_description})
+            </div>
+        </section>
+        @Html.Partial("_Gallery")
+        <section class="aboutMe d-md-flex">
+            <div id="whoAmI"
+                 class="col-md-8 d-flex flex-column justify-content-center align-items-center">
+                <h3>@Language.aboutMe_whoAmI_title</h3>
+                <p>
+                    @Html.Raw(@Language.aboutMe_whoAmI_description)
+                </p>
+            </div>
+            <div id="aboutMeInfo"
+                 class="d-xl-flex flex-column justify-content-center mt-5 ml-auto mr-auto pl-5 pl-md-0 pr-5">
+                <div class="no-padding col-auto col-xl-auto ml-auto mr-auto">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <div id="aboutMeImgOne" class="aboutMeImg"></div>
+                        <h4 class="mt-0 mb-0 ml-3">@Language.aboutMe_software_title</h4>
+                    </div>
+                    <p class="mt-3 ml-3">
+                        @Language.aboutMe_software_description
+                    </p>
+                </div>
+                <div class="no-padding col-auto col-xl-auto mt-4 ml-auto mr-auto">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <div id="aboutMeImgTwo" class="aboutMeImg"></div>
+                        <h4 class="mt-0 mb-0 ml-3">@Language.aboutMe_experience_title</h4>
+                    </div>
+                    <p class="mt-3 ml-3">
+                        @Language.aboutMe_experience_description
+                    </p>
+                </div>
+                <div class="no-padding col-auto col-xl-auto mt-4 ml-auto mr-auto">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <div id="aboutMeImgThree" class="aboutMeImg"></div>
+                        <h4 class="mt-0 mb-0 ml-3">@Language.aboutMe_cooperation_title</h4>
+                    </div>
+                    <p class="mt-3 ml-3">
+                        @Language.aboutMe_cooperation_description
+                    </p>
+                </div>
+            </div>
+        </section>
+    </article>
+</main>

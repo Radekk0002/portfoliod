@@ -1,0 +1,139 @@
+﻿<section class="portfolio d-md-flex align-items-center">
+    <div class="section-container no-padding d-flex justify-content-center align-items-center m-auto">
+        <div class="sections d-flex justify-content-between align-items-center">
+            <div data-section="LOGO" data-order="1"></div>
+            <div data-section="WWW & UI" data-order="2" class="active"></div>
+            <div data-section="OTHER" data-order="3"></div>
+        </div>
+        <div class="sectionLine"></div>
+    </div>
+    @*<div data-sl-section="LOGO">
+        <div data-sl-src="./mini/gold2.jpg">
+            <a href="./hq/gold2.jpg"
+               data-lightbox-trigger="LOGO"
+               data-lightbox-title="Golden ratio II"
+               data-lightbox-description="">
+                <img src="" alt="logo 1" />
+            </a>
+        </div>
+
+        <div data-sl-src="./mini/gold.jpg">
+            <a href="./hq/gold.jpg"
+               data-lightbox-trigger="LOGO"
+               data-lightbox-title="Golden ratio"
+               data-lightbox-description="">
+                <img src="" alt="logo 2" />
+            </a>
+        </div>
+
+        <div data-sl-src="./mini/trippio.png">
+            <a href="./mini/trippio.png"
+               data-lightbox-trigger="LOGO"
+               data-lightbox-title="Trippio"
+               data-lightbox-description="Logo dla fikcyjnego biura wycieczkowego.">
+                <img src="" alt="logo 3" />
+            </a>
+        </div>
+
+        <div data-sl-src="./mini/o.jpg">
+            <a href="./hq/o.jpg"
+               data-lightbox-trigger="LOGO"
+               data-lightbox-title="O"
+               data-lightbox-description="Alfabet - O">
+                <img src="" alt="logo 4" />
+            </a>
+        </div>
+
+        <div data-sl-src="./mini/pcrank.jpg">
+            <a href="./hq/pcrank.jpg"
+               data-lightbox-trigger="LOGO"
+               data-lightbox-title="PC RANKS"
+               data-lightbox-description="Logo dla zajawkowej serii na kanał TechLipton.">
+                <img src="" alt="logo 5" />
+            </a>
+        </div>
+    </div>*@
+    @Html.Partial("_GalleryLogo")
+    @*<div class="show-section" data-sl-section="WWW & UI">
+
+        <div>
+            <a href="./UI/chat.png"
+               data-lightbox-trigger="Wbdgn"
+               data-lightbox-title="Komunikator"
+               data-lightbox-description="Projekt komunikatora.">
+                <img src="./UI/chat.png" width="400" height="400" alt="" />
+            </a>
+        </div>
+
+        <div>
+            <a href="./UI/bank.png"
+               data-lightbox-trigger="Wbdgn"
+               data-lightbox-title="Aplikacja bankowa"
+               data-lightbox-description="Projekt aplikacji
+                                bankowej.">
+                <img src="./UI/bank.png" width="400" height="400" alt="" />
+            </a>
+        </div>
+
+        <div>
+            <a href="./hq/cfn.jpg"
+               data-lightbox-trigger="Wbdgn"
+               data-lightbox-title="Call for Nanny"
+               data-lightbox-description="Projekt strony
+               internetowej dla Call for Nanny - firmy zajmującej się opieką nad dziećmi. | <a
+                                    href='http://callfornanny.pl/' target='_blankt'>Online</a>"
+              >
+                <img src="./mini/cfn.jpg" width="400" height="400" alt="" />
+              </a>
+        </div>
+
+        <div>
+            <a href="./UI/checkout.png"
+               data-lightbox-trigger="Wbdgn"
+               data-lightbox-title="Checkout page"
+               data-lightbox-description="Projekt zakładki
+                                płatności.">
+                <img src="./UI/checkout.png" width="400" height="400" alt="" />
+            </a>
+        </div>
+    </div>*@
+    @await Html.PartialAsync("_GalleryWWW")
+   @* <div data-sl-section="OTHER">
+        <div data-sl-src="./mini/liptonmini.jpg">
+            <a href="./hq/liptonmini.jpg"
+               data-lightbox-trigger="Art"
+               data-lightbox-title="Tech Lipton 2018"
+               data-lightbox-description="Ułamek owocnej
+               współpracy z kanałem <a href='https://www.youtube.com/channel/UC5yINQup0pg6kf3fQ3RDvWw' target='_blankt'>
+                                    TechLipton</a>"
+              >
+                <img src="" alt="" />
+              </a>
+        </div>
+        <div data-sl-src="./art/untitled2.jpg">
+            <a href="./art/untitled2.jpg"
+               data-lightbox-trigger="Art"
+               data-lightbox-title="untitled"
+               data-lightbox-description="">
+                <img src="" alt="" />
+            </a>
+        </div>
+        <div data-sl-src="./art/untitled3.jpg">
+            <a href="./art/untitled3.jpg"
+               data-lightbox-trigger="Art"
+               data-lightbox-title="untitled"
+               data-lightbox-description="">
+                <img src="" alt="" />
+            </a>
+        </div>
+        <div data-sl-src="./art/untitled5.jpg">
+            <a href="./art/untitled5.jpg"
+               data-lightbox-trigger="Art"
+               data-lightbox-title="untitled"
+               data-lightbox-description="">
+                <img src="" alt="" />
+            </a>
+        </div>
+    </div>*@
+    @await Html.PartialAsync("_GalleryOther")
+</section>

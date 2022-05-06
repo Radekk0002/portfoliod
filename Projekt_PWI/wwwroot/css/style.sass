@@ -1,0 +1,1103 @@
+$primary-color: #AFAFAF;
+$secondary-color: #71456E;
+$tertiary-color: #F73F7F;
+
+$information-phone: "only screen and (max-width : 270px)"
+
+$phoneMedium: "only screen and (min-width : 400px)"
+
+$phoneLarge: "only screen and (min-width : 576px)"
+
+$tabletsMedium: "only screen and (min-width : 768px)"
+
+$tabletsLarge: "only screen and (min-width : 992px)"
+
+$desktopSmall: "only screen and (min-width : 1200px)"
+
+$desktopMedium: "only screen and (min-width : 1600px)"
+
+$desktopLarge: "only screen and (min-width : 2100px)"
+
+
+=background-image($url, $size, $repeat, $position)
+    background-image: url($url)
+    background-size: $size
+    background-repeat: $repeat
+    background-position: $position
+
+=flex($justifyContent, $alignItems)
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -webkit-box-pack: $justifyContent
+    -ms-flex-pack: $justifyContent
+    justify-content: $justifyContent
+    -webkit-box-align: $alignItems
+    -ms-flex-align: $alignItems
+    align-items: $alignItems
+
+=transform($t)
+    -webkit-transform: $t
+    -ms-transform: $t
+    transform: $t
+
+=transition($trans, $time, $easing)
+    -webkit-transition: $trans $time $easing
+    -o-transition: $trans $time $easing
+    transition: $trans $time $easing
+
+=transitions($trans1, $time1, $easing1, $trans2, $time2, $easing2)
+    -webkit-transition: $trans1 $time1 $easing1, $trans2 $time2 $easing2
+    -o-transition: $trans1 $time1 $easing1, $trans2 $time2 $easing2
+    transition: $trans1 $time1 $easing1, $trans2 $time2 $easing2
+
+.no-padding
+    padding: 0
+
+.currentNavSection
+    font-weight: 500
+    color: $tertiary-color
+
+*
+    box-sizing: border-box
+    font-family: 'Montserrat', sans-serif
+    
+html
+    background-color: #FCFBFC
+    margin: 0
+    padding: 0
+    font-size: 112.5%     // 1rem = 18px
+    color: $primary-color
+    scrollbar-width: thin
+    &::-webkit-scrollbar
+        display: block
+        width: 0.5rem
+        background-color: #eaeaea
+    &::-webkit-scrollbar-thumb
+        background-color: #aaa
+    &.d-scrolling
+        overflow: hidden
+
+body
+    min-width: 200px
+    position: relative
+    margin: 0
+    overflow-x: hidden
+    height: 100%
+
+section
+    padding-top: 7rem  
+
+#navButton
+    z-index: 2000
+    width: 42px
+    height: 42px
+    position: fixed
+    top: 30px
+    right: 30px
+    cursor: pointer
+    div
+        height: 8px
+        background-color: $primary-color
+        border-radius: 100px
+        margin-top: 4.5px
+        +transition(transform, .5s, ease)
+    div:first-child
+        margin-top: 0
+    #line-one
+        margin-left: auto
+        margin-right: 8px
+        width: 70%
+    #line-two
+        width: 40%
+        margin-left: auto
+    #line-three
+        width: 60%
+        margin-left: auto
+        margin-right: 8px
+
+#navButton.active
+    #line-one
+        +transform(translateX(20%))
+    #line-two
+        +transform(translateX(-130%))
+    #line-three
+        +transform(translateX(25%))
+
+nav
+    position: fixed
+    z-index: 1000
+    +transform(translateX(-100%))
+    +transition(transform, .5s, ease)
+    overflow-x: hidden
+    width: 50%
+    height: 100%
+    will-change: transform
+    p
+        font-size: 20px
+        letter-spacing: 0.8px
+        margin: 50px 0 0
+        +transition(all, .5s, ease)
+        cursor: pointer
+        &:first-child
+            margin: 0
+nav.active
+    +transform(translateX(0%))
+
+#navContainer
+    width: 100%
+    height: 100%
+    background-color: rgba(251, 252, 251, 0.9)
+
+header
+    width: 100%
+    height: 100vh
+    min-height: 18rem
+
+.headerName, .headerNameSm
+    +transform(translateX(-200%))
+    margin-top: 2rem
+    text-align: center
+    max-height: 25%
+    -webkit-animation: slide 1s forwards
+    animation: slide 1s forwards
+    h1
+        font-size: 1.8rem
+        letter-spacing: 0.8px
+        color: $secondary-color
+        font-weight: 500
+    h4
+        font-size: .8rem
+        letter-spacing: 0.8px
+        font-weight: 400
+
+.headerNameSm
+    display: none
+
+.headerIcon
+    height: 50%
+    width: 90%
+    opacity: 0
+    animation: opacity 2s forwards .3s
+
+.portfolioButton
+    width: 85%
+    max-width: 14rem
+    max-height: 25%
+    +transition(transform, .3s, ease)
+    cursor: pointer
+    opacity: 0
+    animation: opacity .5s forwards
+    animation-delay: .8s
+    &:hover
+        +transform(scale(1.1))
+    >img
+        max-width: 100%
+        max-height: 100%
+
+@keyframes slide
+    to
+        +transform(translate(0,0))
+@keyframes opacity
+    to
+        opacity: 1
+
+main
+    width: 100%
+
+.info>div>div
+    opacity: 0
+    &:first-child>.cardImg
+        +background-image("../icons/icon_webdesign.svg", contain, no-repeat, center)
+    &:nth-child(2)>.cardImg
+        +background-image("../icons/icon_identification.svg", contain, no-repeat, center)
+    &:nth-child(3)>.cardImg
+        +background-image("../icons/icon_printer.svg", contain, no-repeat, center)
+
+.info.active>div>div
+    animation: opacity .3s forwards
+
+.info>div>div:nth-child(2)
+    animation-delay: .15s
+
+.info>div>div:nth-child(3)
+    animation-delay: .3s
+
+.card
+    min-height: 370px
+    width: 80%
+    max-width: 19rem
+    margin-top: 3rem
+    p
+        font-size: 0.85rem
+        letter-spacing: 0.8px
+        text-align: center
+
+.cardImg
+    margin-top: 1rem
+    width: 65%
+    height: 10rem
+
+.cardTitle
+    text-align: center
+    >div
+        min-width: 24px
+        min-height: 24px
+        background-color: $tertiary-color
+        border-radius: 100%
+    span
+        color: $secondary-color
+        letter-spacing: 1px
+        font-weight: 400
+        font-size: 1.25rem
+
+//PORTFOLIO / GALLERY
+
+.portfolio
+    margin: auto
+    margin-top: 50px
+    width: 100%
+    opacity: 0
+    transform: translateY(-40px)
+    transition: all .5s ease
+    &.active
+        opacity: 1
+        transform: translateY(0)
+
+.section-container
+    width: 225px
+    height: 30px
+    position: relative
+    margin: auto
+
+.sections
+    width: 100%
+    max-width: 100%
+    height: 100%
+    +flex(space-between, center)
+    position: relative
+    >div
+        width: 20px
+        height: 20px
+        border-radius: 100%
+        background-color: $primary-color
+        position: absolute
+        transition: background-color .5s ease, transform .5s ease, left .5s ease
+        cursor: pointer
+        will-change: left, transform, background-color
+        &::before
+            content: attr(data-section)
+            font-size: 0.7rem
+            white-space: nowrap
+            position: absolute
+            top: 0%
+            left: 50%
+            +transform(translate(-50%,-150%))
+            transition: color .5s ease
+        &.active
+            background-color: $secondary-color
+            color: $tertiary-color
+
+[data-order="1"]
+    z-index: 1
+    left: 0%
+    &.active
+        transform: scale(1.4)
+
+[data-order="2"]
+    z-index: 2
+    left: 50%
+    transform: translate(-50%,0%)
+    &.active
+        transform: translate(-50%,0%) scale(1.4)
+
+[data-order="3"]
+    z-index: 1
+    left: 100%
+    transform: translate(-100%,0%)
+    &.active
+        transform: translate(-100%,0%) scale(1.4)
+
+.fading
+    animation: backgroundSectionButtonFading .5s
+
+
+@keyframes backgroundSectionButtonFading
+    15%
+        opacity: 0.5
+    20%
+        opacity: 0.2
+    40% 
+        opacity: 0.5
+    75%
+        opacity: 1
+
+.sectionLine
+    width: 100%
+    max-width: 100%
+    height: 1px
+    background-color: $primary-color
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+    z-index: -1
+
+.containerGallery
+    width: 100%
+    max-height: 80%
+    margin: 30px auto 0
+    overflow: hidden
+    text-align: center
+
+[data-sl-section]
+    height: 100%
+    width: 100%
+    display: none
+    overflow: hidden
+    vertical-align: middle
+    text-align: center
+    position: relative
+    font-size: 0
+    >div
+        max-width: 100%
+        position: relative
+        padding: 10px
+        will-change: left
+        &::after,&::before
+            content: ""
+            display: inline-block
+            vertical-align: middle
+            height: 100%
+            text-align: center
+            font-size: 0
+        *
+            font-size: medium
+            vertical-align: middle
+        img
+            max-width: 100%
+            max-height: 100%
+            border-radius: 10px
+
+.show-section
+    display: inline-block
+    max-width: 300px
+    font-size: 0
+
+.slider-move-container
+    text-align: center
+    position: relative
+    margin-top: 2rem
+    font-size: 0
+    max-height: 40px
+
+[data-sl-move="prev"], [data-sl-move="next"]
+    width: 32px
+    height: 32px
+    display: inline-block
+    cursor: pointer
+    +transitions(transform, .4s, ease, opacity, .4s, ease)
+
+[data-sl-move="next"]
+    +background-image("../arrowsGallery/next.svg", contain, no-repeat, center)
+    margin-left: 45px
+    &:hover
+        +transform(translateX(10px) scale(1.1))
+
+[data-sl-move="prev"]
+    +background-image("../arrowsGallery/prev.svg", contain, no-repeat, center)
+    margin-right: 45px
+    &:hover
+        +transform(translateX(-10px) scale(1.1))
+//END PORTFOLIO / GALLERY
+
+.dot
+    width: 12px
+    height: 12px
+    border-radius: 100%
+    background-color: $primary-color
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+ 
+.aboutMe
+    overflow-x: hidden
+    margin-top: 3rem
+    &.active>div
+        animation: slide .5s forwards
+    
+#whoAmI
+    +transform(translateX(-150%))
+    +background-image("../background/shape_aboutMe.png", cover, no-repeat, left center)
+    min-height: 20rem
+    max-width: 32rem
+    min-width: 16rem
+    h3
+        font-size: 1.45rem
+        font-weight: 300
+        letter-spacing: 0.8px
+        color: $secondary-color
+        margin-left: 5rem
+        margin-top: 1.4rem
+        margin-bottom: 0
+    p
+        font-size: 0.85rem
+        width: 90%
+        text-align: center
+        letter-spacing: 0.8px
+        font-weight: 400
+        margin-right: .8rem
+        margin-bottom: 0
+        margin-top: 1.4rem
+        span
+            color: $tertiary-color
+
+#aboutMeInfo
+    +transform(translateX(150%))
+    .aboutMeImg
+        min-width: 1.4rem
+        min-height: 1.4rem
+    h4
+        font-size: 1.2rem
+        font-weight: 400
+        letter-spacing: 0.8px
+    p
+        font-size: 0.85rem
+        letter-spacing: 0.8px
+
+#aboutMeImgOne
+    +background-image("../icons/icon_software.svg", contain, no-repeat, center)
+#aboutMeImgTwo
+    +background-image("../icons/icon_experience.svg", contain, no-repeat, center)
+#aboutMeImgThree
+    +background-image("../icons/icon_cooperate.svg", contain, no-repeat, center)
+
+footer
+    width: 100%
+    margin-top: 5rem
+
+#inTouch
+    margin: 0 auto 5rem
+    p
+        font-size: 0.9rem
+        letter-spacing: 0.8px
+        text-align: center
+
+//FORM STYLES
+
+#contactForm
+    width: 100%
+    max-width: 450px
+    margin: 4rem auto 0
+    max-width: 
+    color: $secondary-color
+    letter-spacing: 1.3px
+    position: relative
+    
+.form-row
+    margin-top: 20px
+    width: 100%
+    min-height: 40px
+    text-align: center
+    line-height: 40px
+    border-radius: 8px
+    font-size: 16px
+    border: none
+    opacity: 1
+    transition: opacity .5s ease
+    &.hide
+        opacity: 0
+
+#field-email, #field-subject
+    color: $secondary-color
+    width: 100%
+    min-height: 40px
+    border: none
+    border-radius: 8px
+    font-size: 16px
+    line-height: 40px
+    padding: 0 20px
+    text-align: center
+    &::placeholder
+        text-align: center
+        color: #cccccc
+
+#container-message
+    width: 100%
+    height: 150px
+
+#field-message
+    width: 100%
+    height: 100%
+    border: none
+    border-radius: 8px
+    padding: 18px 14px 36px
+    text-indent: 20px
+    font-size: 14px
+    resize: none
+    outline: none
+    color: $secondary-color
+    scrollbar-width: thin
+    &::placeholder
+        font-size: 16px
+        color: #cccccc
+    &::-webkit-scrollbar
+        display: block
+        width: 0.5rem
+    &::-webkit-scrollbar-thumb
+        background-color: #aaa
+        border-radius: 10px
+
+.container-button
+    transform: translateY(-50%)
+    text-align: center
+    opacity: 1
+    transition: opacity .5s ease
+    &.hide
+        opacity: 0
+
+#sendButton
+    width: 70%
+    max-width: 150px
+    height: 36px
+    border-radius: 50px
+    background-color: $tertiary-color
+    color: white
+    text-transform: uppercase
+    font-size: 13px
+    text-align: center
+    line-height: 35px
+    border: none
+    opacity: 1
+    transition: opacity .5s ease
+    cursor: pointer
+    &:disabled
+        opacity: .5
+
+#field-email:focus, #field-subject:focus, #field-message:focus
+    border-color: #9DC9F5
+    border-style: solid
+    border-width: 2px
+
+#field-message:focus
+    box-shadow: 0px 0px 0 2px #9DC9F5, inset 0 2px 5px rgba(0,0,0,0.07)
+
+#antiSpam
+    display: none
+
+//Error while writing
+#field-email.error, #field-subject.error, #field-message.error
+    border-color: #E01546
+    box-shadow: 0px 0px 0 1px #E01546, inset 0 1px 1px rgba(0,0,0,0.07)
+
+//Style for div if wrongly filled field after submit
+.field-error 
+    color: #E01546
+    padding: 10px 0 0
+    line-height: normal
+    font-size: 12px
+
+//Message if everything went right
+.returnOkMessage
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0
+    width: 100%
+    height: 100%
+    text-align: center
+    h1
+        font-size: 18px
+        width: 100%
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+    &.show
+        animation: fadeIn .5s ease .35s forwards
+
+
+//Message if something went wrong
+.returnErrorMessage
+    font-size: 12px
+    text-align: center
+    opacity: 0
+    &.show
+        animation: fadeIn .5s ease forwards
+
+@keyframes fadeIn
+    to
+        opacity: 1
+
+//END FORM STYLES
+
+#email
+    padding-top: 2rem
+    p
+        font-size: 0.9rem
+        letter-spacing: 0.8px
+        text-align: center
+        a
+            text-decoration: none
+            color: $primary-color
+            &:hover
+                color: #7c7c7c
+
+#emailIcon
+    min-width: 1.3rem
+    min-height: 1.3rem
+    +background-image("../icons/icon_contact.svg", contain, no-repeat, center)
+    
+#socials
+    background-color: white
+    >p
+        font-size: 0.6rem
+        text-align: center
+#socialDivs
+    padding-top: 3rem
+    div
+        width: 3rem
+        height: 3rem
+#fb
+    +background-image("../icons/icon_facebook.svg", contain, no-repeat, center)
+#inst
+    +background-image("../icons/icon_instagram.svg", contain, no-repeat, center)
+#behance
+    +background-image("../icons/icon_behance.svg", contain, no-repeat, center)
+
+@media only screen and (max-height: 320px)
+    nav p
+        margin: 20px 0 0
+
+@media only screen and (min-height: 800px) and (orientation: portrait)
+    header
+        background-position: top right
+        background-size: 80% 100%
+        >div>div
+            padding-top: 12rem
+            h1
+                font-size: 2rem
+            h4
+                font-size: 0.9rem
+
+    .portfolioButton
+        margin-top: 5rem!important
+    
+@media #{$information-phone}
+    body
+        width: 100%
+        overflow-x: scroll
+
+    .headerName, .headerNameSm
+        h1
+            font-size: 1.3rem
+        h4
+            font-size: .6rem
+
+    .card
+        width: 95%
+        p
+            font-size: 0.8rem
+
+    .cardTitle>div
+        min-width: 20px
+        min-height: 20px
+        span
+            font-size: 1.15rem
+
+    .sections [data-section]::before
+        font-size: 10px!important
+
+    #whoAmI
+        background-image: none
+        min-width: unset
+        text-align: center
+        h3
+            font-size: 1.3rem
+            margin-left: 0rem
+        p
+            font-size: 0.7rem
+            width: 100%
+            margin-right: 0rem
+
+    #aboutMeInfo
+        padding: 0 1rem 0 1rem!important
+
+    #inTouch
+        padding: 0!important
+        width: 100%!important
+        max-width: 100%!important
+
+//FORM STYLES   
+@media (min-width: 600px) and (min-height: 650px)
+    .form-row
+        min-height: 50px
+        line-height: 50px
+        font-size: 20px
+
+    #field-email, #field-subject
+        height: 100%
+        min-height: 50px
+        font-size: 20px
+    
+    #container-message
+        max-height: none
+        height: 200px
+
+    #field-message
+        font-size: 17px
+        padding: 22px 28px 44px
+        &::placeholder
+            font-size: 18px
+
+    .returnOkMessage h1
+        font-size: 22px
+
+    .returnErrorMessage
+        font-size: 14px
+//END FORM STYLES
+
+@media #{$phoneMedium}
+    header
+        background-size: 80% 100%
+
+    .show-section
+        height: 20rem
+
+    #whoAmI
+        p
+            width: 80%
+
+    .show-section
+        max-width: 420px
+
+    //FORM STYLES
+    #field-email, #field-subject
+        font-size: 18px
+
+    #field-message, #sendButton
+        font-size: 15px
+    //END FORM STYLES
+
+@media #{$phoneLarge}
+    .headerName, .headerNameSm
+        max-height: none
+
+    .show-section
+        height: 22rem
+
+@media only screen and (orientation: landscape)
+    header
+        background-size: 60% 100%
+        background-position: top right
+
+    .headerIcon
+        max-width: 50%
+
+@media #{$phoneLarge} and (orientation: landscape)
+    header
+        background-size: 70% 100%
+    .home
+        -webkit-box-orient: horizontal!important
+        -webkit-box-direction: normal!important
+        -ms-flex-direction: row!important
+        flex-direction: row!important
+    .home
+        -ms-flex-pack: distribute!important
+        justify-content: space-around!important
+    
+    .headerName, .headerNameSm, .portfolioButton
+        display: none!important
+    
+    .headerNameSm, .headerNameSm>.portfolioButton
+        display: flex!important
+
+    .headerNameSm
+        margin-top: 0
+
+    .headerNameSm>.portfolioButton
+        margin-top: 2rem
+
+    .headerIcon
+        width: 50%
+        height: 70%
+
+    .show-section
+        max-width: 520px
+    
+@media #{$tabletsMedium}
+    section
+        padding-top: 15rem
+    #navButton
+        width: 52px
+        height: 52px
+        padding-right: 10px
+        background-color: rgba(251, 252, 251, 0.9)
+        border-radius: 0 24px 24px 0
+
+    nav
+        top: 30px
+        right: 82px
+        z-index: 1000
+        +transform(none)
+        -webkit-transition: none
+        -o-transition: none
+        transition: none
+        overflow-x: hidden
+        width: 70%
+        max-width: 40rem
+        height: 52px
+        p
+            font-size: 16px
+            margin: 0
+    nav.active>#navContainer
+        +transform(translateX(0%))
+    #navContainer
+        border-radius: 24px 0 0 24px
+        +transform(translateX(96.2%))
+        +transition(transform, .5s, ease)
+        will-change: transform
+        
+    header
+        background-image: url("../background/shape_main_1.png")
+        background-size: 110% 100%
+        background-repeat: no-repeat
+        background-position: top right
+        animation-duration: 2s
+        >div>div
+            animation-duration: 1s
+            margin-top: 3rem
+            h1
+                font-size: 2rem
+            h4
+                font-size: 0.9rem
+
+    .info
+        margin: -5px auto 0 auto
+        background-image: url("../background/shape_middle.png"), url("../background/shape_main_2.png")
+        background-size: contain, calc(110% + 4px) auto
+        background-repeat: no-repeat
+        background-position: center left, top right
+        >div
+            max-width: 80rem
+            margin: auto
+    .card
+        min-height: 420px
+        max-width: 20rem
+        p
+            font-size: 0.8rem
+            letter-spacing: 0.8px
+
+    .cardImg
+        margin-top: 2rem
+
+    .cardTitle
+        span
+            font-size: 1.3rem
+    
+    .portfolio
+        +background-image("../background/shape_circle.svg", 10%, no-repeat, 105% 30%)
+    
+    .section-container
+        width: 100%
+        max-width: 300px
+        margin: 0 0 0 -6rem!important
+        +transform(rotate(90deg))
+        .sections
+            [data-section]
+                &::before
+                    font-size: 0.75rem
+                    +transform(translate(-55%, -280%) rotate(-90deg))
+            [data-section]:nth-child(2)
+                &::before
+                    top: -0.5rem
+
+    .containerGallery
+        width: 70%
+        max-width: 800px
+        margin: 0 auto
+
+    [data-sl-section]
+        max-width: none
+        margin: 0
+        position: reltaive
+        will-change: left
+        >div
+            padding: 12px
+            position: relative
+            img
+                max-width: 100%
+                width: auto
+                height: auto
+
+    .slider-move-container
+        position: absolute
+        top: 100%
+        left: calc(50% + 1.1rem) //50% + 2.7rem
+        margin-top: 0
+
+    #whoAmI
+        background-size: contain
+        min-height: 25rem
+        max-width: 600px
+        min-width: 450px
+        h3
+            margin-left: auto
+            margin-left: 0
+            font-size: 1.6rem
+        p
+            width: 70%
+            margin-right: 0%
+    #aboutMeInfo
+        .aboutMeImg
+            min-width: 1.5rem
+            min-height: 1.5rem
+        h4
+            font-size: 1.2rem
+        p
+            font-size: 0.7rem
+
+    footer
+        +background-image("../background/shape_circle.svg", 15%, no-repeat, -10% top )
+
+    #inTouch
+        p
+            font-size: 1.1rem
+
+#emailIcon
+        width: 1.5rem
+        height: 1.5rem
+
+@media only screen and (min-width: 768px) and (max-width: 991px)
+    header
+        >div>div
+            padding-top: 0
+
+@media #{$tabletsLarge}
+    header
+        background-position: top right
+        >div>div
+            margin-top: 4rem
+    .card
+        background-color: rgba(255, 255, 255, 0.6)
+        border-radius: 1rem
+        -webkit-box-shadow: 0px 0px 63px 14px rgba(0,0,0,0.05)
+        -moz-box-shadow: 0px 0px 63px 14px rgba(0,0,0,0.05)
+        box-shadow: 0px 0px 63px 14px rgba(0,0,0,0.05)
+
+    .cardTitle
+        >div
+            width: 25px
+            height: 25px
+    .containerGallery
+        width: 80%
+        max-width: 1000px
+    #aboutMeInfo
+        .aboutMeImg
+            width: 1.7rem
+            height: 1.7rem
+        h4
+            font-size: 1.4rem
+        p
+            font-size: 0.8rem
+    footer
+        background-size: 10%
+        background-position: -6% top
+
+@media only screen and (min-width: 992px) and (max-height: 700px)
+    header
+        >div>div
+            padding-top: 0
+
+
+@media #{$desktopSmall}
+    header
+        background-size: 110% 100%
+    .headerNameSm
+        margin-top: 0
+        margin-left: 10rem
+        margin-bottom: 7rem
+        h1
+            font-size: 2rem
+        h4
+            font-size: 1rem
+    .portfolioButton
+        margin-top: 6rem!important
+        width: 75%
+        max-width: 100%
+
+    .headerIcon
+        width: 50%
+        height: 80%
+
+    .cardTitle
+        span
+            font-size: 1.4rem
+    .containerGallery
+        max-width: 1400px
+        // height: 30rem
+    #whoAmI
+        min-height: 45rem
+        max-width: 900px
+        h3
+            font-size: 1.7rem
+        p
+            width: 60%
+            font-size: 1rem
+    #aboutMeInfo
+        max-width: 700px
+        .aboutMeImg
+            width: 1.6rem
+            height: 1.6rem
+        h4
+            font-size: 1.4rem
+
+    #inTouch
+        p
+            font-size: 1.1rem
+
+    #email
+        p 
+            font-size: 1rem 
+
+@media #{$desktopMedium}
+    .headerNameSm
+        margin-left: 15rem
+        h1
+            font-size: 2.4rem
+        h4
+            font-size: 1.2rem
+
+    .headerIcon
+        height: 70%
+
+@media #{$desktopLarge}
+    body
+        max-width: 2100px
+        margin: auto
+    header
+        background-image: none
+    
+    .info, .portfolio, #whoAmI, footer, #socials
+        background: none
+
+//IE10+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+    .headerName, .headerNameSm
+        +transform(translateX(0%))
+    .headerNameSm
+        width: 20%
+        .portfolioButton
+            height: 50px
+    .card p
+        width: 75%
+    .section-container .sections
+        +transform(translateY(-50%))
+        [data-section]
+            +transform(translateY(-50%))
+        .active
+            +transform(translateY(-50%) scale(1.5))
+    [data-sl-section]>div>a
+        width: 100%
+        text-align: center

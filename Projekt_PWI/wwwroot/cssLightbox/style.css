@@ -1,0 +1,310 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#overlayLightbox {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10000000;
+}
+
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  max-height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  overflow: hidden;
+  z-index: 10000000;
+  will-change: height;
+}
+
+#containerLightbox {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#closeLightbox {
+  -webkit-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.2);
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  margin: 20px 20px 10px 0;
+  background-image: url("../imgLightbox/close.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+#textLightbox {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 10px;
+  will-change: left, opacity;
+}
+
+#textLightbox > h1 {
+  color: #707070;
+  font-size: 30px;
+  font-weight: 300;
+  margin: 0;
+}
+
+#textLightbox p {
+  color: #B12FA0;
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+#textLightbox p > * {
+  text-decoration: none;
+  color: #F73F7F;
+  font-weight: 500;
+}
+
+#borderLightbox {
+  display: none;
+}
+
+#gifLightbox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  transition: opacity .3s linear;
+}
+
+#contentLightbox {
+  position: relative;
+  max-height: 70%;
+  max-width: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  will-change: left, opacity;
+}
+
+#contentLightbox::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+#contentLightbox > img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+#prevLightboxDeskt, #nextLightboxDeskt {
+  display: none;
+}
+
+#arrowsLightbox {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#prevLightbox, #nextLightbox {
+  width: 40px;
+  height: 40px;
+  -webkit-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 10px 19px 0px rgba(0, 0, 0, 0.2);
+  background-image: url("../imgLightbox/prev.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: all .5s ease;
+}
+
+#nextLightbox {
+  background-image: url("../imgLightbox/next.svg");
+}
+
+@media screen and (min-width: 576px) {
+  #textLightbox {
+    padding-left: 50px;
+  }
+}
+
+@media screen and (min-width: 576px) and (min-height: 576px) {
+  #closeLightbox {
+    min-width: 40px;
+    min-height: 40px;
+  }
+  #arrowsLightbox {
+    margin-top: 20px;
+  }
+  #prevLightbox, #nextLightbox {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #arrowsLightbox {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  #prevLightbox {
+    margin-right: 100px;
+  }
+  #nextLightbox {
+    margin-left: 100px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #lightbox {
+    background-color: rgba(0, 0, 0, 0.9);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  #containerLightbox {
+    width: auto;
+    max-width: 70%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  #closeLightbox {
+    display: none;
+  }
+  #textLightbox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: flex-start;
+    -ms-flex-pack: flex-start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 80px;
+    background-color: black;
+    border-radius: 20px 20px 0 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #F8F8F8;
+  }
+  #textLightbox h1 {
+    font-size: 24px;
+    color: #AFAFAF;
+    font-weight: 500;
+    text-align: center;
+  }
+  #textLightbox p {
+    font-size: 13px;
+    margin: 0;
+    color: #F73F7F;
+    font-weight: 400;
+  }
+  #borderLightbox {
+    display: block;
+    border-left: 2px solid #C5C5C5;
+    height: 50%;
+    min-height: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  #contentLightbox {
+    max-height: 75%;
+  }
+  #arrowsLightbox {
+    margin: 0;
+  }
+  #prevLightbox, #nextLightbox {
+    width: 120px;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background-image: url("../imgLightbox/prevDeskt.svg");
+    background-size: 80px;
+    background-position: left center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(0%, 0%);
+    transition: all .5s ease;
+  }
+  #nextLightbox {
+    background-image: url("../imgLightbox/nextDeskt.svg");
+    background-position: right center;
+    left: 100%;
+    transform: translate(-100%, 0%);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #wrapperLightbox {
+    width: 80%;
+  }
+  #textLightbox h1 {
+    font-size: 30px;
+  }
+  #textLightbox p {
+    font-size: 16px;
+  }
+  #prevLightbox, #nextLightbox {
+    width: 150px;
+  }
+}
